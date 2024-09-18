@@ -1,8 +1,7 @@
 const express = require("express");
+const { stripeKey } = require("../utils/config");
 const router = express.Router();
-const stripe = require("stripe")(
-  "sk_test_51L9UqtG0EzPHWgTDVYnc5JN2mZeTJVJL4xPLUrckxRI4cLqM99NtEcfv7X9zll8k98xHajJouexwEWmcNZaDxDex00HzgsqPH4"
-);
+const stripe = require("stripe")(stripeKey);
 
 const buyGig = async (req, res) => {
   const { products } = req.body; // Get product details from frontend or Postman
